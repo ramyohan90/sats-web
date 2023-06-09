@@ -3,21 +3,22 @@ web app for ordinals - from sats community
 
 # Stack Overview
 
-React with webpack & babel configuration + typescript.
+React with webpack & babel configuration + typescript + tailwind
 Initialized dev and prod environment with webpack and babel
 Did not use create-react-app scaffolding.
 Will be adding redux configuration soon for state management.
+Tailwindcss configured
 
 # How to start the app:
 
 1. npm install
 2. To start dev server: npm start
 3. To build production server: npm run build
-4. Deploy minfied build files in production
+4. Deploy minified build files in production
 
 # TODO:
-1. Tailwind CSS Setup - Nede to finalize if tailwind will be used.
-2. React state management configuration
-3. Production optimization (later stage)
+1. React state management configuration
+2. Production optimization (later stage)
+3. Optimize Tailwind css for production (Not now)
 
 
