@@ -1,6 +1,6 @@
 module.exports = {
     mode: 'production',
-    devttool: false,
+    devtool: false,
     optimization: {
         splitChunks: {
           minSize: 10000,

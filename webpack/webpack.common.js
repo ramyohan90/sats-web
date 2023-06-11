@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ProvidePlugin } = require("webpack");
 
 module.exports = {
     entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -22,6 +23,9 @@ module.exports = {
                 exclude: /node_modules/, // excluding the node_modules folder
                 use: {
                     loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                      }
                 },
             }, {
                 test: /\.css$/,
@@ -40,6 +44,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '..', './src/index.html'),
-        })
+        }),
+        new ProvidePlugin({
+            React: 'react',
+          })
     ]
 };

@@ -3,11 +3,10 @@ web app for ordinals - from sats community
 
 # Stack Overview
 
-React with webpack & babel configuration + typescript + tailwind
-Initialized dev and prod environment with webpack and babel
-Did not use create-react-app scaffolding.
-Will be adding redux configuration soon for state management.
-Tailwindcss configured
+1. React configured with Tailwind for CSS styles
+2. Configured with Babel and Webpack for javascript compilation.
+3. Configured React Toolkit for state management
+4. Implemented Dark Theme and Light Theme
 
 # How to start the app:
 
@@ -17,8 +16,11 @@ Tailwindcss configured
 4. Deploy minified build files in production
 
 # TODO:
-1. React state management configuration
+1. Work on project features
 2. Production optimization (later stage)
 3. Optimize Tailwind css for production (Not now)
+
+# Issues
+1. Feel free to optimize the code in case of any performance issues or other issues
 
 
