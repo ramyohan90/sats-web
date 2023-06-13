@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/Header';
 import { WrapperComponent } from './components/Wrapper';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { DrawerComponent } from './components/Drawer';
 function App() {
 
   const theme = useSelector((state: any) => state['theme']);
@@ -20,10 +21,17 @@ function App() {
 
   return (
     <BrowserRouter>
-          {theme.isDark}
+      {theme.isDark}
       <div className={theme.isDark ? 'dark' : ''}>
-      <HeaderComponent />
-      <WrapperComponent />
+        <HeaderComponent />
+        <div className='flex flex-row'>
+          <div className='w-56 sm:hidden md:hidden xxs:hidden lg:block xl:block 2xl: block'>
+              <DrawerComponent />
+          </div>
+          <div className='w-full'>
+            <WrapperComponent />
+          </div>
+        </div>
       </div>
     </BrowserRouter>
   );

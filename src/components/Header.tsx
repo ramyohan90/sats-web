@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { LogoComponent } from "../svg/Logo";
 import { SliderComponent } from "../svg/Slider";
 import { ThemeSliceReducer } from "../store/reducers/slice";
-
+import { FcGoogle } from 'react-icons/fc'
 export function HeaderComponent() {
 
     const themeDispatch = useDispatch();
@@ -25,7 +25,11 @@ export function HeaderComponent() {
                     </div>
                     <div className="mt-4 dark:text-satsColor">Sats Domain Central</div>
                 </div>
-                <div className="ml-auto align-middle mr-5 cursor-pointer" onClick={changeTheme}>
+                <div className="ml-auto align-middle mr-3 text-white p-1 rounded text-sm cursor-pointer">
+                    <button className="flex gap-2"> <FcGoogle className="mt-1"/> <span>Google Signin</span></button>
+                </div>
+                <div className="align-middle mr-3 bg-satsColor text-white p-1 rounded text-sm cursor-pointer">Connect Wallet</div>
+                <div className="align-middle mr-5 cursor-pointer" onClick={changeTheme}>
                     <SliderComponent />
                 </div>
             </div>

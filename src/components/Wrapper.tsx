@@ -5,6 +5,7 @@ export function WrapperComponent() {
     return (
         <Routes>
             <Route path="/" element={ <HomeComponent />}></Route>
+            <Route path="/home" element={ <HomeComponent />}></Route>
         </Routes>
     )
 }
