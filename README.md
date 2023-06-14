@@ -7,11 +7,14 @@ web app for ordinals - from sats community
 2. Configured with Babel and Webpack for javascript compilation.
 3. Configured React Toolkit for state management
 4. Implemented Dark Theme and Light Theme
+5. Added Responsiveness
+6. Added useContext to open handset drawer
 
 # How to start the app:
 
 1. npm install
-2. To start dev server: npm start
+2. To start local server: npm start
+3. To start dev server: npm run dev
 3. To build production server: npm run build
 4. Deploy minified build files in production
 

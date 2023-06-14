@@ -4,7 +4,7 @@ export function HomeComponent() {
     return (
         <div className="mt-7">
             <div className='flex flex-col items-center'>
-                <div className='grid gap-20 text-center lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 sm: grid-cols-2 xs:grid-cols-1 xxs:grid-cols-1'>
+                <div className='grid gap-12 text-center lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 sm: grid-cols-2 xs:grid-cols-1 xxs:grid-cols-1'>
                     <div className="h-40 w-64 rounded p-3 flex flex-col gap-5 bg-gray-200 text-center justify-center">
                         <div>
                             Domains

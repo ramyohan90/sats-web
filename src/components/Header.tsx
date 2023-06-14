@@ -2,16 +2,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { LogoComponent } from "../svg/Logo";
 import { SliderComponent } from "../svg/Slider";
 import { ThemeSliceReducer } from "../store/reducers/slice";
-import { FcGoogle } from 'react-icons/fc'
+import { FcGoogle } from 'react-icons/fc';
+import { VscThreeBars } from 'react-icons/vsc';
+import { useContext } from "react";
+import { HandsetDrawerStateContext } from "../context/HandSetDrawerContext";
 export function HeaderComponent() {
 
     const themeDispatch = useDispatch();
 
     const theme = useSelector((state: any) => state['theme']);
 
+    const drawerCtx = useContext(HandsetDrawerStateContext);
+
     function changeTheme() {
         themeDispatch(ThemeSliceReducer())
     }
+
+    function onMenuClick() {
+        drawerCtx.setHandsetDrawerState({
+          type: 'drawer',
+          payload: {
+            isHandsetOpen: true,
+            currentScreen: 'feed'
+          }
+        })
+      }
 
     return (
         <nav className="bg-satsColor text-white font-mono dark:bg-gray-800 relative">
@@ -23,14 +38,17 @@ export function HeaderComponent() {
                                 <LogoComponent height={50} width={50} innerColor="#f85d1d" outerColor="none" />
                         }
                     </div>
-                    <div className="mt-4 dark:text-satsColor">Sats Domain Central</div>
                 </div>
-                <div className="ml-auto align-middle mr-3 text-white p-1 rounded text-sm cursor-pointer">
+                <div className="flex-1"></div>
+                <div className="ml-auto align-middle mr-3 text-white p-1 rounded text-sm cursor-pointer lg:block xl:block 2xl:block sm:hidden md:block xs:hidden xxs:hidden">
                     <button className="flex gap-2"> <FcGoogle className="mt-1"/> <span>Google Signin</span></button>
                 </div>
-                <div className="align-middle mr-3 bg-satsColor text-white p-1 rounded text-sm cursor-pointer">Connect Wallet</div>
-                <div className="align-middle mr-5 cursor-pointer" onClick={changeTheme}>
+                <div className="align-middle mr-3 bg-satsColor text-white p-1 rounded text-sm cursor-pointer lg:block xl:block 2xl:block sm:hidden md:block xs:hidden xxs:hidden">Connect Wallet</div>
+                <div className="align-middle mr-3 cursor-pointer" onClick={changeTheme}>
                     <SliderComponent />
+                </div>
+                <div onClick={onMenuClick} className="lg:hidden xl:hidden 2xl:hidden sm:block md:block xs:block xxs:block">
+                <VscThreeBars size={25} className="mr-5 dark:text-satsColor text-white"/>
                 </div>
             </div>
         </nav>

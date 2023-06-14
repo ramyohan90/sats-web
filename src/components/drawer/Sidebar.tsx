@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { LogoComponent } from "../svg/Logo";
+import { LogoComponent } from "../../svg/Logo";
 import { BiHomeAlt } from 'react-icons/bi';
 import { BsPencilSquare, BsSearch } from 'react-icons/bs';
 import { MdOutlineToken } from 'react-icons/md';
@@ -16,7 +16,7 @@ export function DrawerComponent() {
     }
 
     return (
-        <div id="drawer-example" className="fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform -translate-x-full bg-satsColor w-56 dark:bg-gray-800" tabIndex={-1} aria-labelledby="drawer-label">
+        <div id="drawer-example" className="fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform -translate-x-full bg-satsColor dark:bg-gray-800" tabIndex={-1} aria-labelledby="drawer-label">
             <div className="flex flex-row h-16 p-2">
                 <div>
                     {
