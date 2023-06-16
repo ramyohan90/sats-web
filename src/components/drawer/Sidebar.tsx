@@ -53,7 +53,7 @@ export function DrawerComponent() {
                                 color: '#f85d1d',
                                 backgroundColor: '#E5FAFB'
                             }}><BsSearch size={20} /></button></div>
-                        <div>Search</div>
+                        <div onClick={() => navigate('search')}>Search</div>
                     </div>
                     <div className="cursor-pointer hover:bg-gray-400 w-full text-center rounded flex flex-row gap-3 justify-start p-1">
                         <div><button className="opacity-0.9 
