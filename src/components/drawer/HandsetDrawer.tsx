@@ -1,13 +1,19 @@
 import { useContext } from "react";
 import { HandsetDrawerStateContext } from "../../context/HandSetDrawerContext";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LogoComponent } from "../../svg/Logo";
+import { ThemeSliceReducer } from "../../store/reducers/slice";
+import { useNavigate } from "react-router-dom";
 
 export default function HandsetDrawer() {
 
     const ctx = useContext(HandsetDrawerStateContext);
 
     const theme = useSelector((state: any) => state['theme']);
+
+    const history = useNavigate();
+
+    const themeDispatch = useDispatch();
 
     function onClose() {
         ctx.setHandsetDrawerState({
@@ -19,10 +25,18 @@ export default function HandsetDrawer() {
         })
     }
 
+    function changeTheme() {
+        themeDispatch(ThemeSliceReducer())
+    }
+
     function onBackdropClose(event: any) {
         if ((event.target.outerHTML as string).includes('backdrop-control')) {
             onClose();
         }
+    }
+
+    function navigate(path: string) {
+        history(path)
     }
 
     return (
@@ -36,9 +50,9 @@ export default function HandsetDrawer() {
                     <div onClick={onClose} className="ml-auto mr-2 -mt-3 text-gray-600 cursor-pointer" style={{ fontSize: '35px' }}>&times;</div>
                 </div>
                 <div className="flex flex-col gap-2 p-4 mt-3 font-mono tracking-tight list-none font-sm dark:text-white">
-                    <li onClick={() => { }} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">Home</li>
-                    <li onClick={() => { }} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">{theme.isDark ? 'Light' : 'Dark'} Theme</li>
-                    <li onClick={() => { }} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">Search</li>
+                    <li onClick={() => { navigate('home') }} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">Home</li>
+                    <li onClick={() => {changeTheme()}} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">{theme.isDark ? 'Light' : 'Dark'} Theme</li>
+                    <li onClick={() => { navigate('search') }} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">Search</li>
                     <li onClick={() => { }} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">Inscribe</li>
                     <li onClick={() => { }} className="p-4 text-center text-white rounded cursor-pointer bg-satsColor">Other BRC20</li>
                 </div>
